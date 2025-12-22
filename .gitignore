@@ -1,0 +1,8 @@
+# Bỏ qua file hệ thống Mac
+.DS_Store
+
+# Bỏ qua thư mục cài đặt của VS Code (tùy chọn)
+.vscode/
+
+# Bỏ qua các file log lỗi (nếu có)
+*.log

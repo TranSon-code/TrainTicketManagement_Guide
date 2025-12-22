@@ -42,3 +42,13 @@ body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', sans-
 .content h2:first-child { margin-top: 0; padding-bottom: 10px; border-bottom: 2px solid #eee; }
 .section-block { margin-bottom: 80px; }
 .section-block h3 { color: #007bff; margin-bottom: 10px; }
+
+img {
+    max-width: 85%;    /* Chỉ chiếm 80% chiều rộng khung */
+    height: auto;      /* Giữ tỉ lệ chuẩn */
+    display: block;
+    margin: 20px auto; /* Tự động canh giữa */
+    
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}

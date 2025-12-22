@@ -13,11 +13,75 @@
     <div class="content">
         <h2>Hướng dẫn bán Vé</h2>
         <div class="section-block" id="chon-chuyen-tau">
-            <h3>Chọn chuyến tàu</h3>
-            <p>B1: Chọn ga đi - ga đến trong tìm kiếm chuyến tàu rồi chọn ngày đi và nhấn tìm chuyến</p>
-            <p>B2: </p>
+            <h3>Chọn chuyến tàu và chỗ đặt</h3>
+            <div class="section-block" id="chon-chuyen-tau">
+                <img src="../../img/mh_NhanVienBanVe/mhbanve.png" id="mh-ban-ve" alt="Giao diện bán vé tàu" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 15px;">
+
+                <p style="text-indent: 30px;">
+                    Tại màn hình bán vé, quy trình thao tác được thực hiện tuần tự theo 4 bước chính như sau:
+                </p>
+
+                <ul style="margin-left: 50px;">
+                    <li>
+                        <b>Bước 1 - Tìm kiếm và Chọn chuyến:</b> Nhập thông tin <i>Ga đi, Ga đến</i> và <i>Ngày khởi hành</i> rồi nhấn nút <b>"Tìm chuyến"</b>. Danh sách chuyến tàu phù hợp sẽ hiện ra, nhân viên chọn một chuyến cụ thể để xem sơ đồ toa.
+                    </li>
+                    <li>
+                        <b>Bước 2 - Chọn chỗ ngồi:</b> Xác định số lượng hành khách, chọn toa và nhấn vào các ghế trống (màu trắng) trên sơ đồ. Các ghế đang chọn sẽ chuyển sang trạng thái <b>màu xanh dương</b>.
+                    </li>
+                    <li>
+                        <b>Bước 3 - Nhập thông tin hành khách:</b> Hệ thống hiển thị khung nhập liệu tương ứng với từng ghế bên cột phải.
+                        <br><i>Cơ chế nhập liệu thông minh:</i> Ưu tiên nhập số <b>CCCD/Định danh</b> đầu tiên. 
+                        <ul style="margin-top: 5px; margin-bottom: 5px; list-style-type: circle;">
+                            <li>Nếu là <b>khách hàng cũ</b>: Hệ thống tự động điền Họ tên, Ngày sinh, SĐT.</li>
+                            <li>Nếu là <b>khách hàng mới</b>: Nhân viên nhập thủ công các trường còn lại.</li>
+                        </ul>
+                        Sau đó, chọn đúng <b>Loại vé</b> (Người lớn, Sinh viên, Trẻ em...) để hệ thống tính toán giá tiền chính xác.
+                    </li>
+                    <li>
+                        <b>Bước 4 - Điều hướng:</b> Sau khi nhập đầy đủ thông tin cho tất cả các vé, nhấn nút <b>"Tiếp theo"</b> (màu xanh dương) ở góc dưới để chuyển sang <a href="#mh-thanh-toan">màn hình thanh toán</a>.
+                    </li>
+                </ul>
+
+                <div style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 10px 15px; margin-top: 15px;">
+                    <b>⚠️ Lưu ý quan trọng:</b>
+                    <p style="margin: 5px 0 0 0;">
+                        Trong cùng một phiên giao dịch bán vé, nhân viên <b>KHÔNG ĐƯỢC</b> chọn ghế thuộc các chuyến tàu khác nhau. Hệ thống yêu cầu sự đồng nhất về chuyến tàu cho tất cả các vé trong một đơn hàng.
+                    </p>
+                </div>
+            </div>
         </div>
-        <div style="height:500px"></div>
+        
+        <div class="section-block" id="xac-nhan-thanh-toan">
+            <h3>Xác nhận thanh toán</h3>
+            <img src="../../img/mh_NhanVienBanVe/mhxacnhanthanhtoanchobanve.png" id="mh-thanh-toan" alt="Giao diện thanh toán vé tàu" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 15px;">
+
+            <p style="text-indent: 30px;">
+                Giao diện thanh toán được thiết kế trực quan với cột bên trái là thông tin xử lý và cột bên phải là hóa đơn xem trước. Quy trình thực hiện như sau:
+            </p>
+
+            <ul style="margin-left: 50px;">
+                <li>
+                    <b>Bước 1 - Kiểm tra thông tin:</b> Rà soát lại <i>Thông tin hành trình</i> và <i>Danh sách khách hàng</i> để đảm bảo không có sai sót trước khi xuất vé.
+                </li>
+                <li>
+                    <b>Bước 2 - Áp dụng Khuyến mãi (Nếu có):</b> 
+                    <br>Hệ thống sẽ <b>tự động tìm và áp dụng</b> chương trình khuyến mãi tốt nhất cho đơn hàng. Nhân viên có thể linh hoạt chọn mã khuyến mãi khác hoặc bấm nút "Xóa KM" nếu khách không muốn áp dụng.
+                </li>
+                <li>
+                    <b>Bước 3 - Xử lý thanh toán:</b>
+                    <ul style="margin-top: 5px; margin-bottom: 5px; list-style-type: circle;">
+                        <li>Chọn <b>Hình thức thanh toán</b> (mặc định là Tiền mặt).</li>
+                        <li>Nhập <b>Tiền khách đưa</b>: Có thể nhập thủ công hoặc nhấn vào các nút <b>"Gợi ý"</b> (ví dụ: 1.400.000) để nhập nhanh theo mệnh giá tiền chẵn.</li>
+                        <li>Hệ thống sẽ tự động tính toán và hiển thị số <b>Tiền thối lại</b> cần trả cho khách.</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Bước 4 - Hoàn tất giao dịch:</b> Nhấn nút <b>"Xác nhận thanh toán"</b> (màu xanh lá). 
+                    <br>Khi thông báo <i>"Thanh toán thành công"</i> hiện ra, nhấn <b>OK</b>. Lúc này hóa đơn chính thức sẽ hiển thị chi tiết ở khung bên phải. Nhấn nút <b>"Kết thúc"</b> (màu cam) để đóng quy trình và in vé.
+                </li>
+            </ul>
+        </div>
+
     </div>
 </div>
 

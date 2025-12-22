@@ -46,18 +46,18 @@ body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', sans-
 .level-3-link:hover { color: #007bff; text-decoration: underline; }
 
 /* CONTENT */
-.content { flex-grow: 1; padding: 20px 50px; overflow-y: auto; scroll-behavior: smooth; }
+.content { flex-grow: 1; padding: 20px 50px; overflow-y: auto;}
 .content h2:first-child { margin-top: 0; padding-bottom: 10px; border-bottom: 2px solid #eee; }
 .section-block { margin-bottom: 80px; }
 .section-block h3 { color: #007bff; margin-bottom: 10px; }
 
 img {
-    max-width: 85%;
+    max-width: 90%!important;
     height: auto;
     display: block;
 
     /* --- KHU VỰC CĂN LỀ & KHOẢNG CÁCH --- */
-    margin-top: 60px;     /* <--- CHỈNH Ở ĐÂY: Khoảng cách với nội dung bên TRÊN */
+    margin-top: 60px !important;     /* <--- CHỈNH Ở ĐÂY: Khoảng cách với nội dung bên TRÊN */
     margin-bottom: 20px;  /* Khoảng cách với nội dung bên DƯỚI */
     margin-left: auto;    /* Tự động canh giữa trái */
     margin-right: auto;   /* Tự động canh giữa phải */

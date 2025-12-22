@@ -12,7 +12,6 @@
 
     <div class="content">
         <h2>Hướng dẫn đổi vé</h2>
-        <p>Quá trình đổi vé gồm có 4 giai đoạn , <a href="#tim-kiem-ve-doi">tìm kiếm vé</a> , <a href="#chon-ve-doi"> chọn vé đổi</a> , <a href="#chon-cho-moi"> chọn chỗ mới </a> , và <a href="#xac-nhan-thanh-toan"> xác nhận thanh toán</a></p>
         <div class="section-block" id="tim-kiem-ve-doi" style="margin-bottom: 0;">
             <h3>Tìm kiếm vé cần đổi</h3>
             <img src="../../img/mh_NhanVienBanVe/thututimkiem.png" alt="Giao diện tìm kiếm vé">
@@ -79,23 +78,85 @@
 
             <img src="../../img/mh_NhanVienBanVe/bamdoive.png" alt="Hướng dẫn lọc và lược bỏ vé">
             <p style="text-indent: 30px; ">
-                    <b>Về hình thức đổi vé:</b> Nhân viên có thể thực hiện <b>Đổi vé đơn</b> (sử dụng nút "Đổi vé" trên từng thẻ vé) hoặc <b>Đổi vé tập thể</b> (sử dụng nút "Đổi toàn bộ") và chọn xác nhận. 
+                    <b>Về hình thức đổi vé:</b> Nhân viên có thể thực hiện <b>Đổi vé đơn</b> (sử dụng nút "Đổi vé" trên từng thẻ vé) hoặc <b>Đổi vé tập thể</b> (sử dụng nút "Đổi toàn bộ") và chọn xác nhận
+                    để chuyển đến <a href="#doivebandau">màn hình xử lý chọn chỗ mới</a>. 
                     Lưu ý: Đối với hình thức đổi tập thể, tất cả các vé được chọn bắt buộc phải thuộc <b>cùng một chuyến tàu</b>. 
                     Trong trường hợp các vé không đồng nhất về mã chuyến, hệ thống sẽ từ chối thao tác và hiển thị thông báo lỗi để đảm bảo tính toàn vẹn dữ liệu.
             </p>
         </div>
 
-        <div class="section-block" id="chon-cho-moi" style="margin-top: 0;">
-            <h3>Chọn chỗ mới</h3>
-            <p>Nội dung hướng dẫn...</p>
-        </div>
-        <div style="height:500px"></div>
+        <div class="section-block" id="chon-cho-moi" style="margin-top: 0; margin-bottom: 0;">
+            <h3>3. Chọn chuyến tàu và chỗ mới</h3>
+            
+            <img src="../../img/mh_NhanVienBanVe/doivebandau.png" id="doivebandau" alt="Giao diện ban đầu khi đổi vé" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 15px;">
+            
+            <p style="text-indent: 30px;">
+                Tại giao diện ban đầu, hệ thống sẽ tự động hiển thị danh sách các khách hàng cần đổi vé ở cột bên phải (bao gồm thông tin vé cũ). 
+                Nhân viên tiến hành nhập thông tin <b>Ga đi, Ga đến</b> và <b>Ngày khởi hành</b> mong muốn, sau đó nhấn nút <b>"Tìm chuyến"</b>.
+            </p>
 
-        <div class="section-block" id="xac-nhan-thanh-toan">
-            <h3>Xác nhận thanh toán</h3>
-            <p>Nội dung hướng dẫn...</p>
+            <img src="../../img/mh_NhanVienBanVe/doivesaukhichontoa.png" alt="Giao diện chọn chỗ ngồi" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 15px;">
+            
+            <p style="text-indent: 30px;">
+                Sau khi danh sách chuyến tàu hiện ra, quy trình chọn chỗ diễn ra theo trình tự sau:
+            </p>
+            
+            <ul style="margin-left: 50px; margin-bottom: 20px;">
+                <li>
+                    <b>Bước 1 - Chọn toa:</b> Nhấn vào chuyến tàu phù hợp, sau đó chọn toa tàu trên thanh danh sách toa để hiển thị sơ đồ ghế.
+                </li>
+                <li>
+                    <b>Bước 2 - Chọn ghế:</b> Nhấn chọn vào các ghế có trạng thái Trống (màu trắng). 
+                    <br><i>&rarr; Hệ thống sẽ đánh dấu ghế vừa chọn sang màu xanh (Đang chọn), tự động cập nhật thông tin "Chỗ mới" cho khách hàng hiện tại và tính toán lại giá vé mới.</i>
+                </li>
+                <li>
+                    <b>Bước 3 - Cơ chế tự động:</b> Sau khi chọn xong chỗ cho khách hàng thứ nhất, hệ thống sẽ <b>tự động chuyển lượt chọn</b> sang khách hàng tiếp theo trong danh sách. Nhân viên tiếp tục chọn ghế cho đến khi tất cả khách hàng đều đã có chỗ mới.
+                </li>
+                <li>
+                    <b>Bước 4 - Điều chỉnh (Nếu cần):</b> Để chọn lại chỗ cho một khách hàng cụ thể, nhân viên nhấn vào <b>nút tròn (Radio button)</b> trước tên khách hàng đó. Lúc này, ghế đang chọn của họ sẽ sáng màu xanh để nhận biết, nhân viên có thể chọn một ghế khác thay thế.
+                </li>
+                <li>
+                    <b>Bước 5 - Hoàn tất:</b> Nhấn nút <b>"Xác nhận đổi"</b> (màu xanh lá) ở góc dưới cùng bên phải để kết thúc quá trình chọn chỗ. Hệ thống sẽ tự động chuyển sang <a href="#da-xac-nhan-doi-ve">màn hình thanh toán</a>.
+                </li>
+            </ul>
+
+            <div style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 10px 15px; margin-top: 10px;">
+                <b>⚠️ Lưu ý quan trọng :</b>
+                <p style="margin: 5px 0 0 0;">
+                    Trong một phiên giao dịch đổi vé tập thể, tất cả các vé mới bắt buộc phải thuộc <b>CÙNG MỘT CHUYẾN TÀU</b>. 
+                    Nếu nhân viên cố tình chọn chuyến tàu khác khi chưa hoàn tất việc đổi vé cho toàn bộ danh sách, hệ thống sẽ hiển thị thông báo lỗi và ngăn chặn thao tác.
+                </p>
+            </div>
         </div>
-        <div style="height:500px"></div>
+
+        <div class="section-block" id="xac-nhan-thanh-toan" style="margin-top: 0; margin-bottom: 0;">
+            <h3>Xác nhận thanh toán</h3>
+            <img src="../../img/mh_NhanVienBanVe/daxacnhandoive.png" id="da-xac-nhan-doi-ve" alt="Giao diện xác nhận thanh toán đổi vé" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 15px;">
+    
+            <p style="text-indent: 30px;">
+                Đây là bước cuối cùng để hoàn tất giao dịch. Giao diện được chia thành 2 khu vực chính: <b>Bảng kê chi tiết</b> (bên trái) và <b>Hóa đơn dự kiến</b> (bên phải). Quy trình thực hiện như sau:
+            </p>
+
+            <ul style="margin-left: 50px;">
+                <li>
+                    <b>Bước 1 - Kiểm tra thông tin:</b> Nhân viên rà soát lại mục <b>Thông tin vé mới</b> và <b>Chi tiết đổi chỗ</b> (bảng so sánh đối chiếu giữa ghế cũ và ghế mới) để đảm bảo chính xác trước khi xuất vé.
+                </li>
+                <li>
+                    <b>Bước 2 - Đối soát chi phí:</b> Tại mục <b>Tổng hợp chi phí</b>, hệ thống sẽ tự động tính toán số tiền chênh lệch:
+                    <ul style="margin-top: 5px; margin-bottom: 5px; list-style-type: circle;">
+                        <li><i>Khách cần trả thêm:</i> Nếu giá vé mới cao hơn vé cũ.</li>
+                        <li><i>Hoàn lại tiền:</i> Nếu giá vé mới thấp hơn vé cũ.</li>
+                        <li><i>Không cần thanh toán:</i> Nếu giá trị hai vé ngang bằng nhau (Giao dịch đổi ngang giá).
+                    </ul>
+                </li>
+                <li>
+                    <b>Bước 3 - Xác nhận giao dịch:</b> Nhân viên chọn <b>Hình thức thanh toán</b> (Tiền mặt/Chuyển khoản...), sau đó nhấn nút <b>"Xác nhận đổi vé"</b> (màu xanh lá) để lưu giao dịch xuống hệ thống.
+                </li>
+                <li>
+                    <b>Bước 4 - Hoàn tất:</b> Sau khi thông báo "Giao dịch thành công" xuất hiện, chi tiết hóa đơn sẽ được hiển thị đầy đủ ở khung bên phải. Nhấn nút <b>Ok</b> và <b>"Kết thúc"</b> (màu cam) ở góc dưới cùng để kết thúc quá trình đổi vé.
+                </li>
+            </ul>
+        </div>
 
     </div>
 </div>

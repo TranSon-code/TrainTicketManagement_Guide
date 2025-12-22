@@ -44,11 +44,17 @@ body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', sans-
 .section-block h3 { color: #007bff; margin-bottom: 10px; }
 
 img {
-    max-width: 85%;    /* Chỉ chiếm 80% chiều rộng khung */
-    height: auto;      /* Giữ tỉ lệ chuẩn */
+    max-width: 85%;
+    height: auto;
     display: block;
-    margin: 20px auto; /* Tự động canh giữa */
+
+    /* --- KHU VỰC CĂN LỀ & KHOẢNG CÁCH --- */
+    margin-top: 60px;     /* <--- CHỈNH Ở ĐÂY: Khoảng cách với nội dung bên TRÊN */
+    margin-bottom: 20px;  /* Khoảng cách với nội dung bên DƯỚI */
+    margin-left: auto;    /* Tự động canh giữa trái */
+    margin-right: auto;   /* Tự động canh giữa phải */
     
+    /* Trang trí */
     border: 1px solid #ccc;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }

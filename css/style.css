@@ -6,7 +6,15 @@ body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', sans-
 /* SIDEBAR */
 .sidebar { width: 350px; background-color: #f8f9fa; border-right: 1px solid #ccc; overflow-y: auto; padding: 20px; flex-shrink: 0; }
 .sidebar h3 { text-align: center; margin: 0 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #007bff; color: #007bff; }
+.content img {
+    max-width: 60%;    /* Chỉ chiếm 80% chiều rộng khung */
+    height: auto;      /* Giữ tỉ lệ chuẩn */
+    display: block;
+    margin: 20px auto; /* Tự động canh giữa */
 
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 /* MENU STYLE (PHẲNG) */
 .menu-group { margin-bottom: 15px; } /* Thay thế cho details */
 

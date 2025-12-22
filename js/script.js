@@ -11,17 +11,12 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(html => {
                 sidebarPlaceholder.innerHTML = html;
                 
-                // 2. Gán ID để quản lý
-                assignIdsToDetails();
-
-                // 3. Khôi phục trạng thái (Nếu người dùng từng mở thủ công thì giữ nguyên)
-                restoreMenuState();
-
-                // 4. Tô màu link trang hiện tại (NHƯNG KHÔNG TỰ MỞ NỮA)
+                // 2. Tô màu ngay khi vừa vào trang (Lần đầu tiên)
                 highlightCurrentPage();
 
-                // 5. Lắng nghe hành động đóng mở
-                setupStateListener();
+                // 3. QUAN TRỌNG: Lắng nghe sự kiện thay đổi hash (#)
+                // Dòng này giúp cập nhật màu khi bạn bấm chuyển qua lại giữa các mục con 1.2.1, 1.2.2...
+                window.addEventListener('hashchange', highlightCurrentPage);
             })
             .catch(error => console.error('Lỗi tải menu:', error));
     }
@@ -29,69 +24,63 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function getPathToMenu() {
     const path = window.location.pathname;
-    // Logic xác định đường dẫn tương đối
     if (path.includes("/NhanVienBanVe/") || path.includes("/QuanLy/")) {
         return "../../html/menu.html"; 
     }
     return "../menu.html"; 
 }
 
-function assignIdsToDetails() {
-    const details = document.querySelectorAll('details');
-    details.forEach((el, index) => {
-        if (!el.id) el.id = "menu-group-" + index;
-    });
-}
-
-function restoreMenuState() {
-    const details = document.querySelectorAll('details');
-    details.forEach(el => {
-        // Chỉ mở nếu trong quá khứ người dùng đã CỐ TÌNH mở nó
-        const isOpen = sessionStorage.getItem(el.id);
-        if (isOpen === 'true') {
-            el.setAttribute('open', '');
-        } else if (isOpen === 'false') {
-            el.removeAttribute('open');
-        }
-    });
-}
-
 function highlightCurrentPage() {
-    // Lấy tên file hiện tại
-    const currentPage = window.location.pathname.split("/").pop();
+    // Lấy URL hiện tại, dùng decode để tránh lỗi ký tự lạ
+    const currentUrl = decodeURIComponent(window.location.href); 
     const links = document.querySelectorAll('.sidebar a');
-    
+
+    // 1. RESET: Xóa sạch toàn bộ màu cũ
     links.forEach(link => {
-        const href = link.getAttribute('href');
-        // So sánh tương đối, bỏ qua các ký tự ../
-        if (href && href.indexOf(currentPage) !== -1) {
-            
-            // CHỈ THỰC HIỆN TÔ MÀU
-            link.style.color = "#007bff";
-            link.style.fontWeight = "bold";
-
-            // --- ĐÃ XÓA ĐOẠN CODE TỰ ĐỘNG MỞ MENU Ở ĐÂY ---
-            // Bây giờ nó chỉ tô màu thôi, còn đóng hay mở kệ nó.
-        }
+        link.style.color = "";
+        link.style.fontWeight = "";
+        link.style.backgroundColor = "";
+        link.style.borderRadius = "";
     });
-}
 
-function setupStateListener() {
-    const details = document.querySelectorAll('details');
-    details.forEach(el => {
-        // Xử lý riêng cho click vào thẻ a trong summary
-        // Để tránh việc bấm chuyển trang mà nó lại hiểu nhầm là đóng/mở menu
-        const summaryLink = el.querySelector('summary a');
-        if(summaryLink) {
-            summaryLink.addEventListener('click', function(e) {
-                // Khi bấm vào link chuyển trang, không làm thay đổi trạng thái đóng mở hiện tại
-                e.stopPropagation(); 
-            });
+    // 2. BẮT ĐẦU TÔ MÀU
+    links.forEach(link => {
+        // So sánh chính xác 100% (bao gồm cả dấu #)
+        // Ví dụ: link là .../BanVe.html#chon-tau bằng với URL hiện tại
+        if (decodeURIComponent(link.href) === currentUrl) {
+
+            // --- TRƯỜNG HỢP 1: Chọn Link Cấp 2 (Mục cha) ---
+            if (link.classList.contains('level-2-link')) {
+                link.style.color = "#007bff";
+                link.style.fontWeight = "bold";
+                link.style.backgroundColor = "#e7f3ff"; // Tô nền xanh
+                link.style.borderRadius = "5px";
+            }
+
+            // --- TRƯỜNG HỢP 2: Chọn Link Cấp 3 (Mục con) ---
+            else if (link.classList.contains('level-3-link')) {
+                
+                // A. Tô màu chữ cho chính mục con (Không tô nền)
+                link.style.color = "#007bff";
+                link.style.fontWeight = "bold";
+
+                // B. TÌM CHA ĐỂ TÔ (Logic này của bạn RẤT CHUẨN)
+                // Tìm thẻ bao bọc (div class="level-2-item")
+                const parentContainer = link.closest('.level-2-item');
+                
+                if (parentContainer) {
+                    // Từ thẻ bao, tìm ngược lại thẻ a cấp 2 (Mục cha)
+                    const parentLink = parentContainer.querySelector('.level-2-link');
+                    
+                    if (parentLink) {
+                        // Tô nền + chữ cho Cha
+                        parentLink.style.color = "#007bff";
+                        parentLink.style.fontWeight = "bold";
+                        parentLink.style.backgroundColor = "#e7f3ff"; // Nền xanh cho cha
+                        parentLink.style.borderRadius = "5px";
+                    }
+                }
+            }
         }
-
-        el.addEventListener('toggle', function() {
-            // Chỉ lưu trạng thái khi thực sự bấm vào mũi tên
-            sessionStorage.setItem(el.id, el.open);
-        });
     });
 }
